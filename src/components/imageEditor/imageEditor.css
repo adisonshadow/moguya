@@ -1,0 +1,128 @@
+/* 图片编辑器全页布局，与暗色主题一致 */
+.yiman-image-editor {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 0px);
+  min-height: 480px;
+  background: #0d0d0d;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 禁用按钮外包一层，便于 Tooltip 在禁用态仍可触发 */
+.yiman-editor-header-icon-wrap {
+  display: inline-flex;
+  vertical-align: middle;
+  cursor: not-allowed;
+}
+
+.yiman-image-editor-toolbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 16px;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+  background: rgb(44, 44, 44);
+}
+
+.yiman-image-editor-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.yiman-image-editor-workspace {
+  flex-shrink: 0;
+  width: 220px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(22, 22, 22, 0.98);
+  display: flex;
+  flex-direction: column;
+  touch-action: auto;
+  overscroll-behavior: contain;
+}
+
+.yiman-image-editor-workspace-title {
+  padding: 12px 14px 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.yiman-image-editor-workspace-layers {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* 画布区域外：中性灰；棋盘格仅在文档矩形内由 Konva 绘制 */
+.yiman-image-editor-canvas-wrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  background: #4a4a4a;
+  /* 自定义双指平移/缩放，避免交给浏览器整页缩放 */
+  touch-action: none;
+}
+
+.yiman-image-editor-inspector {
+  flex-shrink: 0;
+  width: 300px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(22, 22, 22, 0.98);
+  overflow: auto;
+}
+
+.yiman-image-editor-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.yiman-image-editor-layer-item-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.yiman-image-editor-layer-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.yiman-image-editor-layer-item.active {
+  background: rgba(23, 119, 255, 0.2);
+  color: #fff;
+}
+
+.yiman-image-editor-context-menu {
+  position: fixed;
+  z-index: 1050;
+  min-width: 160px;
+  padding: 4px 0;
+  background: #262626;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.yiman-image-editor-context-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.yiman-image-editor-context-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+*.dmg
+*.blockmap
+*.exe
+*.AppImage
+*.snap
+
+# Vite / local overrides
+*.local
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs & caches
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache/
+.vite/
+.turbo/
+*.tsbuildinfo
+
+# Electron / native rebuild
+.electron-builder-cache/
+
+# ONNX / large model weights（如有本地模型目录）
+electron/models/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Misc
+*.swp
+*.swo
+*~

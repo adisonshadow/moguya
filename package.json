@@ -1,0 +1,75 @@
+{
+  "name": "moguya",
+  "version": "0.1.2",
+  "private": true,
+  "type": "module",
+  "author": "Difang",
+  "main": "dist-electron/main/index.js",
+  "description": "蘑菇鸭 - AI图片编辑应用",
+  "scripts": {
+    "dev": "vite",
+    "dev:web": "vite --config vite.config.web.ts",
+    "build": "vite build && ELECTRON_BUILDER_CACHE=\"$HOME/Library/Caches/electron-builder-user\" electron-builder",
+    "typecheck": "tsc --noEmit",
+    "rebuild:electron": "electron-rebuild -f -w better-sqlite3",
+    "postinstall": "electron-rebuild -f -w better-sqlite3"
+  },
+  "build": {
+    "appId": "com.mogoyya.app",
+    "productName": "蘑菇鸭",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist",
+      "dist-electron",
+      "electron/models/**"
+    ],
+    "mac": {
+      "icon": "public/images/logo.icns",
+      "category": "public.app-category.graphics-design",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@volcengine/openapi": "1.36.2",
+    "antd": "^6.2.2",
+    "better-sqlite3": "12.9.0",
+    "classnames": "^2.5.1",
+    "font-list": "^2.0.2",
+    "konva": "^10.2.3",
+    "onnxruntime-node": "^1.24.1",
+    "paper": "^0.12.18",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-konva": "^19.2.3",
+    "react-router-dom": "^7.13.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.0",
+    "@types/node": "^25.1.0",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "electron": "^40.1.0",
+    "electron-builder": "^26.4.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
